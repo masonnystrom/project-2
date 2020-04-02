@@ -9,17 +9,17 @@ from dash.dependencies import Input, Output
 from app import app, server
 from pages import index, predictions, insights, process
 
-# Navbar docs: https://dash-bootstrap-components.opensource.faculty.ai/l/components/navbar
+
 navbar = dbc.NavbarSimple(
-    brand='YOUR APP NAME',
+    brand='YC Company List',
     brand_href='/', 
     children=[
-        dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')), 
-        dbc.NavItem(dcc.Link('Insights', href='/insights', className='nav-link')), 
+        dbc.NavItem(dcc.Link('YC List', href='/predictions', className='nav-link')), 
+        dbc.NavItem(dcc.Link('Top 100', href='/insights', className='nav-link')), 
         dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')), 
     ],
     sticky='top',
-    color='light', 
+    color='primary', 
     light=True, 
     dark=False
 )
@@ -35,11 +35,11 @@ footer = dbc.Container(
         dbc.Col(
             html.P(
                 [
-                    html.Span('Your Name', className='mr-2'), 
-                    html.A(html.I(className='fas fa-envelope-square mr-1'), href='mailto:<you>@<provider>.com'), 
-                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/<you>/<repo>'), 
-                    html.A(html.I(className='fab fa-linkedin mr-1'), href='https://www.linkedin.com/in/<you>/'), 
-                    html.A(html.I(className='fab fa-twitter-square mr-1'), href='https://twitter.com/<you>'), 
+                    html.Span('Mason Nystrom', className='mr-2'), 
+                    # html.A(html.I(className='fas fa-envelope-square mr-1'), href='mailto:<you>@<provider>.com'), 
+                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/masonnystrom/project-2'), 
+                    html.A(html.I(className='fab fa-linkedin mr-1'), href='https://www.linkedin.com/in/masonnystrom/'), 
+                    html.A(html.I(className='fab fa-twitter-square mr-1'), href='https://twitter.com/masonnystrom'), 
                 ], 
                 className='lead'
             )
@@ -58,7 +58,6 @@ app.layout = html.Div([
     html.Hr(), 
     footer
 ])
-
 
 # URL Routing for Multi-Page Apps: https://dash.plot.ly/urls
 @app.callback(Output('page-content', 'children'),
